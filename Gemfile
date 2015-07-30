@@ -1,28 +1,47 @@
+ruby '2.2.2'
 source 'https://rubygems.org'
 
-
-gem 'rails', '4.2.3'
-
-gem 'rails-api'
-
-gem 'spring', :group => :development
-
-
+gem 'bourbon'
+gem 'bitters'
+gem 'coffee-rails'
+gem 'devise'
+gem 'foreman'
+gem 'httparty'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'neat'
+gem 'normalize-rails'
 gem 'pg'
 gem 'puma'
+gem 'pundit'
+gem 'rails', '4.2.1'
+gem 'sass-rails'
+gem 'simple_form'
+gem 'simplecov', :require => false, :group => :test
+gem 'slim-rails'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'turbolinks'
+gem 'uglifier'
+gem 'unicorn'
+gem 'faker'
 
+group :production do
+  gem 'rails_12factor'
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+group :test, :development do
+  gem 'byebug'
+  gem 'factory_girl_rails'
+  gem 'forgery'
+  gem 'spring'
+  gem 'web-console', '~> 2.0'
+  gem 'zonebie'
+  gem 'rspec-rails', '~> 3.0'
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :test do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
+end
