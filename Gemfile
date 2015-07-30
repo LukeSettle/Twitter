@@ -1,47 +1,26 @@
-ruby '2.2.2'
 source 'https://rubygems.org'
+ruby "2.2.2"
 
-gem 'bourbon'
-gem 'bitters'
-gem 'coffee-rails'
-gem 'devise'
-gem 'foreman'
-gem 'httparty'
-gem 'jbuilder'
-gem 'jquery-rails'
-gem 'neat'
-gem 'normalize-rails'
+gem 'rails-api'
+
+gem 'activerecord'
+gem 'actionmailer'
+gem 'active_model_serializers', '0.10.0.rc2'
 gem 'pg'
 gem 'puma'
-gem 'pundit'
-gem 'rails', '4.2.1'
-gem 'sass-rails'
-gem 'simple_form'
-gem 'simplecov', :require => false, :group => :test
-gem 'slim-rails'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'kaminari'
+gem 'sass-rails', '~> 5.0'
+gem 'skylight'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'jquery-rails'
 gem 'turbolinks'
-gem 'uglifier'
-gem 'unicorn'
-gem 'faker'
+gem 'jbuilder', '~> 2.0'
 
 group :production do
   gem 'rails_12factor'
 end
-
-group :test, :development do
+group :development, :test do
   gem 'byebug'
-  gem 'factory_girl_rails'
-  gem 'forgery'
-  gem 'spring'
-  gem 'web-console', '~> 2.0'
-  gem 'zonebie'
-  gem 'rspec-rails', '~> 3.0'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'launchy'
-  gem 'database_cleaner'
-  gem 'capybara-webkit'
+  gem 'foreman'
 end
