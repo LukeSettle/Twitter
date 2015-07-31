@@ -7,7 +7,6 @@ describe Doorkeeper::TokensController do
       user = User.new
       user.email = Faker::Internet.email
       user.password = password
-      user.confirm
       user.save!
       payload = {
         email: user.email,

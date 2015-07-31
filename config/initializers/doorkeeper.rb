@@ -18,3 +18,4 @@ Doorkeeper.configure do
 
   grant_flows %w(assertion authorization_code client_credentials password)
 end
+  

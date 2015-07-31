@@ -1,25 +1,37 @@
 class UsersController < ApplicationController
 	def index
-		render json: User.all
-	end
+    authenticate_user!
+    users = User.all
+    render_json_api users
+  end
 
 	def show
-		@user = User.find(params[:id])
-		render json: @user
-	end
+    authenticate_user!
+    user = User.find(params[:id])
+    raise UnauthorizedError unless current_user.id == user.id
+    render_json_api user
+  end
 
 	def new
 		@user = User.new
 	end
 
 	def create
-		@user = User.new(user_params)
-		if @user.save
-			render json: @user
-		else
-			head :bad_request
-		end
-	end
+    user = User.new(user_params)
+    if user.save
+      render_json_api user
+    else
+      render json: {errors: user.errors}, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    authenticate_user!
+    user = User.find(params[:id])
+    raise UnauthorizedError unless current_user.id == user.id
+    user.update(user_params)
+    render_json_api user
+  end
 
 	def follow user
 		@user = User.find(params[:id])
