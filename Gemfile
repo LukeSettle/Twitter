@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.2.2"
 
 gem 'rails-api'
-
+gem 'acts_as_follower'
 gem 'activerecord'
 gem 'actionmailer'
 gem 'active_model_serializers', '0.10.0.rc2'
@@ -18,4 +18,5 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'foreman'
+  gem 'faker'
 end
