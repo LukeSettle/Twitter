@@ -5,14 +5,6 @@ class ApplicationController < ActionController::API
   rescue_from UnauthenticatedError, with: :unauthenticated
   rescue_from UnauthorizedError, with: :unauthorized
 
-  def render_json_api obj
-    if obj.respond_to? :total_pages
-      render json: obj, content_type: "application/vnd.api+json", meta: {total_pages: obj.total_pages}
-    else
-      render json: obj, content_type: "application/vnd.api+json"
-    end
-  end
-
   def authenticate_user!
     return true if doorkeeper_token && doorkeeper_token.accessible?
     raise UnauthenticatedError

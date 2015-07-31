@@ -22,4 +22,5 @@ group :development, :test do
   gem 'foreman'
   gem 'faker'
 	gem "factory_girl_rails", "~> 4.0"
+	gem 'pry'
 end
