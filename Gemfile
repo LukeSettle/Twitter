@@ -17,7 +17,9 @@ group :production do
   gem 'rails_12factor'
 end
 group :development, :test do
+	gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
   gem 'foreman'
   gem 'faker'
+	gem "factory_girl_rails", "~> 4.0"
 end
