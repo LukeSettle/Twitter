@@ -15,9 +15,9 @@ class TweetsController < ApplicationController
 	def create
 		@tweet = Tweet.new(tweet_params)
 		if @tweet.save
-			redirect_to tweets_path
+			render json: @tweet
 		else
-			render :new
+			head :bad_request
 		end
 	end
 
