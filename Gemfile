@@ -12,6 +12,7 @@ gem 'pg'
 gem 'puma'
 gem 'kaminari'
 gem 'skylight'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :production do
   gem 'rails_12factor'

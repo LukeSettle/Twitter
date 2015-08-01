@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  allow_cors :index, :show, :new, :create, :user_params, :follow, :unfollow, :update
+  
 	def index
     render json: User.all
   end

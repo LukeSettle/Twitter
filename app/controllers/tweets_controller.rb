@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-	allow_cors :index, :show, :new, :create, :tweet_params
 	def index
 		render json: Tweet.all
 	end

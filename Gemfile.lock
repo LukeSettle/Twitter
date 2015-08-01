@@ -91,6 +91,7 @@ GEM
       slop (~> 3.4)
     puma (2.12.2)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-api (0.4.0)
@@ -162,6 +163,7 @@ DEPENDENCIES
   pg
   pry
   puma
+  rack-cors
   rails-api
   rails_12factor
   rspec-rails (~> 3.0)
