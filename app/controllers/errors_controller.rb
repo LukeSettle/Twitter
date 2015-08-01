@@ -1,4 +1,5 @@
 class ErrorsController < ActionController::Base
+  allow_cors :not_found, :exception
   def not_found
     respond_to do |f|
       f.json { render :json => {:error => "not-found"}.to_json, :status => 404 }

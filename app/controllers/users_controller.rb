@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  allow_cors :index, :show, :new, :create, :user_params, :follow, :unfollow, :update
 	def index
     render json: User.all
   end
@@ -32,14 +33,16 @@ class UsersController < ApplicationController
   end
 
 	def follow user
-		@user = User.find(params[:id])
-		@user.follow(user)
+		@user = User.find(params[:user_id])
+		current_user.follow(@user)
+    head :ok
 	end
 
-	def following
-		@user = User.find(params[:id])
-		users_followed = @user.all_following
-	end
+  def unfollow user
+    @user = User.find(params[:user_id])
+    current_user.stop_following(@user)
+    head :ok
+  end
 
 	private
 

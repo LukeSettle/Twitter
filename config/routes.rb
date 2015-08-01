@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   use_doorkeeper
   devise_for :users
-  resources :users
+  resources :users do
+  	put :follow
+  	put :unfollow
+  end
 	root 'tweets#index'
   resources :tweets
 
