@@ -8,10 +8,6 @@ class TweetsController < ApplicationController
 		render json: @tweet.body
 	end
 
-	def new
-		@tweet = Tweet.new
-	end
-
 	def create
     authenticate_user!
 		@tweet = Tweet.new(tweet_params)
@@ -28,4 +24,4 @@ class TweetsController < ApplicationController
 	def tweet_params
 		params.require(:tweet).permit(:body)
 	end
-end
+end  
