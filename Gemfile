@@ -11,8 +11,8 @@ gem 'doorkeeper'
 gem 'pg'
 gem 'puma'
 gem 'kaminari'
-gem 'skylight'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'skylight'
 
 group :production do
   gem 'rails_12factor'
