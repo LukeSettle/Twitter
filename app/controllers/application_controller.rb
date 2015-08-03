@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   UnauthorizedError     = Class.new(ActionController::ActionControllerError)
   rescue_from UnauthenticatedError, with: :unauthenticated
   rescue_from UnauthorizedError, with: :unauthorized
-
+  respond_to :json`
   def authenticate_user!
     return true if doorkeeper_token && doorkeeper_token.accessible?
     raise UnauthenticatedError
