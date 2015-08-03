@@ -1,6 +1,12 @@
 class TweetsController < ApplicationController
 	def index
-		render json: Tweet.all
+		if current_user
+			current_user.all_following.each do |f|
+				render json: f.tweets
+			end
+		else
+			render json: Tweet.all
+		end
 	end
 
 	def show
@@ -24,4 +30,4 @@ class TweetsController < ApplicationController
 	def tweet_params
 		params.require(:tweet).permit(:body)
 	end
-end  
+end
