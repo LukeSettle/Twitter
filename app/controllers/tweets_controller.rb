@@ -1,10 +1,6 @@
 class TweetsController < ApplicationController
 	def index
-		if current_user
-			following_ids = current_user.all_following.map(&:id)
-    	all_ids = following_ids << current_user.id
-    	render json: Tweet.where(user_id: all_ids).order("created_at DESC")
-    end
+		render json: Tweet.all
 	end
 
 	def show
