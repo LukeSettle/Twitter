@@ -1,17 +1,15 @@
 class TweetsController < ApplicationController
 	def index
 		if current_user
-			current_user.all_following.each do |f|
-				render json: f.tweets
-			end
-		else
-			render json: Tweet.all
-		end
+			following_ids = current_user.all_following.map(&:id)
+    	all_ids = following_ids << current_user.id
+    	render json: Tweet.where(user_id: all_ids).order("created_at DESC")
+    end
 	end
 
 	def show
 		@tweet = Tweet.find(params[:id])
-		render json: @tweet.body
+		render json: @tweet
 	end
 
 	def create

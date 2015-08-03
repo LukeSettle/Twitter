@@ -13,6 +13,7 @@ gem 'puma'
 gem 'kaminari'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'skylight'
+gem 'will_paginate'
 
 group :production do
   gem 'rails_12factor'

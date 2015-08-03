@@ -144,6 +144,7 @@ GEM
       thread_safe (~> 0.1)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -168,6 +169,7 @@ DEPENDENCIES
   rails_12factor
   rspec-rails (~> 3.0)
   skylight
+  will_paginate
 
 BUNDLED WITH
    1.10.5
