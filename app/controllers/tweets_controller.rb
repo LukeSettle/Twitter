@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
 		render json: @tweet.body
 	end
 
-	def new	
+	def new
 		@tweet = Tweet.new
 	end
 
@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
 		if @tweet.save
 			render json: @tweet
 		else
-			head :bad_request
+      render json: {errors: @tweet.errors}, status: :unprocessable_entity
 		end
 	end
 

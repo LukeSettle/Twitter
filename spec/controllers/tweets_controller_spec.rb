@@ -15,11 +15,4 @@ RSpec.describe TweetsController, type: :controller do
 			expect(response).to have_http_status(:success)
 		end
 	end
-
-	describe "GET #create" do
-		it "errors if too short" do
-			post :create, tweet: { body: "123" }
-      expect(assigns(:tweet).errors).to_not be_empty
-		end
-	end
 end
