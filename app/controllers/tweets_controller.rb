@@ -13,7 +13,9 @@ class TweetsController < ApplicationController
 	end
 
 	def create
+    authenticate_user!
 		@tweet = Tweet.new(tweet_params)
+    @tweet.user = current_user
 		if @tweet.save
 			render json: @tweet
 		else
