@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
-  
 	def index
     render json: User.all
   end
 
-	def show 
-    authenticate_user!
+	def show
     user = User.find(params[:id])
-    raise UnauthorizedError unless current_user.id == user.id
     render json: user
   end
 
@@ -33,12 +30,14 @@ class UsersController < ApplicationController
   end
 
 	def follow user
+    authenticate_user!
 		@user = User.find(params[:user_id])
 		current_user.follow(@user)
     head :ok
 	end
 
   def unfollow user
+    authenticate_user!
     @user = User.find(params[:user_id])
     current_user.stop_following(@user)
     head :ok

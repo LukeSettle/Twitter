@@ -28,4 +28,12 @@ describe UsersController do
       expect(json["errors"]["email"]).to_not be_empty
     end
   end
+
+  describe 'GET /users/:id' do
+    it "allows anyone to get a profile" do
+      user = FactoryGirl.create :user
+      get user_path(user)
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
