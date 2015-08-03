@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
 		render json: @tweet.body
 	end
 
-	def new
+	def new	
 		@tweet = Tweet.new
 	end
 
