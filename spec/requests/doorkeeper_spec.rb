@@ -14,7 +14,7 @@ describe Doorkeeper::TokensController do
         grant_type: "password"
       }
       post oauth_token_path, payload
-      expect(response.status).to eq 200
+      expect(response).to have_http_status(:success)
     end
   end
 end
