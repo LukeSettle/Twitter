@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	def index
     if current_user
-      render json: current_user.followers
+      render json: current_user.all_following
     else
       render json: User.all
     end
